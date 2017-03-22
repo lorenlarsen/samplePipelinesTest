@@ -9,11 +9,11 @@ resources:
     type: image
     integration: pipelinetest
     pointer:
-      sourceName: "694082941752.dkr.ecr.us-east-1.amazonaws.com/repo1"
+      sourceName: "gcr.io/clever-web-162023"
       isPull: false
     #make sure this seed version exists in your registry account
     seed:
-      versionName: master.18
+      versionName: master.25
 
 # Docker Image Options for VISUALIZER
   - name: dv-img-opts
@@ -35,9 +35,9 @@ resources:
 # add TEST env - AWS cluster
   - name: env-test-ecs
     type: cluster
-    integration: AWS-ECS
+    integration: gke-engine
     pointer:
-      sourceName : "shipabledemo"
+      sourceName : "cluster-1"
       region: "us-east-1"
 
 #######1: EOF Create DV pipeline
